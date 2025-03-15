@@ -1,0 +1,1 @@
+console.log("Bem vindo ao bun no Windows!");
