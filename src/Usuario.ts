@@ -1,6 +1,6 @@
 import { Item } from "./Item";
 
-class Usuario {
+export class Usuario {
     // propriedades privadas
     private _id:number;
     private nome:string;
@@ -19,7 +19,7 @@ class Usuario {
         this.telefone = telefone;
     }
 
-    // depois voltamos aqui (parte2: metodos)
+
     emprestarItem(item:Item): boolean {
         if (!this.itensEmprestados.includes(item)) { // verifica se o item não tá no array
             this.itensEmprestados.push(item); // coloca o item no array de itens emprestado
@@ -29,9 +29,13 @@ class Usuario {
         }
     }
 
+
     devolverItem(item:Item): boolean {
         if (this.itensEmprestados.includes(item)) { // verifica se o item tá no array
-            return true; // coloca o item no array de itens emprestado
+            this.itensEmprestados = this.itensEmprestados.filter(
+                item => item['id'] !== this._id
+            ); // tira o item no array de itens emprestado
+            return true; 
         } else {
             return false;
         }
