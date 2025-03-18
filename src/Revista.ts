@@ -1,6 +1,7 @@
+import type { Pesquisavel } from "./interfaces";
 import { Item } from "./Item";
 
-class Revista extends Item {
+export class Revista extends Item implements Pesquisavel{
     // propriedades adicionais
     edicao:number;
     periodicidade:string;
@@ -14,11 +15,20 @@ class Revista extends Item {
         this.periodicidade = periodicidade;
     }
 
+    // Métodos
+    
     exibirDetalhes(): string {
-        return `--- Revista: ${this.titulo} ---\n
-        ID: ${this.id}\n
-        Ano: ${this.ano}
-        Edição: ${this.edicao}\n
-        Periodicidade: ${this.periodicidade}\n`
+        return `--- Revista: ${this.titulo} ---
+    - ID: ${this.id}
+    - Ano: ${this.ano}
+    - Edição: ${this.edicao}
+    - Periodicidade: ${this.periodicidade}`
+    }
+
+    pesquisar(termo: string): boolean {
+        return (
+            this.titulo.includes(termo) ||
+            this.periodicidade.includes(termo)
+        );
     }
 }
