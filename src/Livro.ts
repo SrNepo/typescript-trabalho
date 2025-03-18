@@ -1,6 +1,8 @@
+import type { Pesquisavel } from "./interfaces.ts";
 import { Item } from "./Item.ts";
 
-class Livro extends Item {
+
+export class Livro extends Item implements Pesquisavel {
     // propriedades adicionais
     autor:string;
     editora:string;
@@ -15,12 +17,22 @@ class Livro extends Item {
         this.numero_pags = numero_pags;
     }
 
+    // Métodos
+
     exibirDetalhes(): string{
-        return `--- Livro: ${this.titulo} ---\n
-        ID: ${this.id}\n
-        Ano: ${this.ano}
-        Autor(a): ${this.autor}\n
-        Editora: ${this.editora}\n
-        Numero de páginas: ${this.numero_pags}`
+        return `--- Livro: ${this.titulo} ---
+    - ID: ${this.id}
+    - Ano: ${this.ano}
+    - Autor(a): ${this.autor}
+    - Editora: ${this.editora}
+    - Numero de páginas: ${this.numero_pags}`
+    }
+
+    pesquisar(termo:string): boolean {
+        return (
+            this.titulo.includes(termo) ||
+            this.autor.includes(termo) ||
+            this.editora.includes(termo)
+        );
     }
 }
