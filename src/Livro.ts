@@ -25,7 +25,7 @@ export class Livro extends Item implements Pesquisavel {
     - Ano: ${this.ano}
     - Autor(a): ${this.autor}
     - Editora: ${this.editora}
-    - Numero de páginas: ${this.numero_pags}`
+    - Numero de páginas: ${this.numero_pags}\n`
     }
 
     pesquisar(termo:string): boolean {

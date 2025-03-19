@@ -22,7 +22,7 @@ export class Revista extends Item implements Pesquisavel{
     - ID: ${this.id}
     - Ano: ${this.ano}
     - Edição: ${this.edicao}
-    - Periodicidade: ${this.periodicidade}`
+    - Periodicidade: ${this.periodicidade}\n`
     }
 
     pesquisar(termo: string): boolean {

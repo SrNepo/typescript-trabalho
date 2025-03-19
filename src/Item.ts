@@ -14,7 +14,7 @@ export abstract class Item {
 
     // método abstrato
     abstract exibirDetalhes(): {
-        
+
     }
 
 }
