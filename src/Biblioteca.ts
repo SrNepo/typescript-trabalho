@@ -21,13 +21,8 @@ export class Biblioteca {
         }
     }
     
-    buscarItens(termo:string): void {
-        this.itens.forEach(item => {
-            if (item.titulo === termo) {
-                console.log(item.exibirDetalhes());
-            }
-        }
-        );
+    buscarItens(termo:string): Item[] {
+        return this.itens.filter(item => item.titulo === termo);
     }
 
 }
